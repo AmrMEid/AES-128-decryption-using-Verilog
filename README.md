@@ -2,28 +2,28 @@
 designing a hardware using Verilog to decrypt AES message and implement the design with less than 3% of zynq FPGA resources in one-lab CU competition
 
 
-Algorithm
+## Algorithm
 
 The Advanced Encryption Standard (AES) is a famous method for the encryption of electronic data. AES operates on 16 bytes long text (or 128-bits) which arrange in a 4 × 4 matrix . Encryption or Dycryption consists of 10 rounds of processing for 128-bit keys. All rounds are simialr except the last one as shown in next figure . 
 
 This project divided to 2 main blocks . key expansion block and Rounds block which also divided to 4 smaller blocks(shift rows-subbytes - add round key - mix columns).
 
-Shift Rows
+# 1.Shift Rows
 
 It's a trasportation step which rotates right wise n elements in every n-th row. 
 As shown in next figure, first row (row number 0) no change happens.in second row(row number 1) 1 element rotates right. and so on.
 
 
-Sub bytes
+# 2.Sub bytes
 
 This step replaces each entry in the matrix from the corresponding entry in the inverse S-Box as shown in next figure. for example if you have elemnt equals 0x32 you will replace it with 0xa1 and so on.
 
-Add round key
+# 3.Add round key
 
 it's a simple step where only xor key with the dycrepted data.
 
 
-inverse mix col
+# 4.inverse mix col
 
 this is step is a matrix multiplcation with the inverse convert matrix. every col will multiplied with each row of the inverse matrix to evaluate the new col and addition is just xor operation. as example to evaluate the first new element. the column will be multiplied with the first row in the inverse matrix. 
 result= 0x0E * 16 + 0x0B * 15 + 0x0D * 14 + 0x09 * 13
