@@ -15,6 +15,7 @@ Encryption or Dycryption consists of 10 rounds of processing for 128-bit keys. A
 
 This project divided to 2 main blocks . key expansion block and Rounds block which also divided to 4 smaller blocks(shift rows-subbytes - add round key - mix columns).
 
+
 ### 1.Shift Rows
 
 It's a trasportation step which rotates right wise n elements in every n-th row. 
