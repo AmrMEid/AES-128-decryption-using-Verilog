@@ -48,3 +48,18 @@ and adding them to have the combination of the inverse matrix as example if we n
 
 another note in this method if the last bit in the element equals 1 before shifting then xor the result after shifting with 0x1B
 
+### Key Expansion
+
+This operation have 4 steps and repeated 10 times.first stepis rotating the 4th column one element down such as next figure 
+
+![Asset 6](https://user-images.githubusercontent.com/43087648/95027295-b0256080-0697-11eb-8d67-588dba88911c.png)                                ![Asset 8](https://user-images.githubusercontent.com/43087648/95027355-26c25e00-0698-11eb-9319-6d70e838c4d1.png)
+
+then this rotated column will be passed to subbytes step.then the new first column = Xor(pervious 1st col , Rcon , col from subbytes step ).Rcon(row constant) is different in every round as next figure 
+
+![image](https://user-images.githubusercontent.com/43087648/95027434-bc5ded80-0698-11eb-86fb-374f8c1c0528.png)
+
+the new 2nd col = Xor(pervious 2nd col , the new 1st col)
+
+the new 3rd col = Xor(pervious 3rd col , the new 2nd col)
+
+the new 4th col = Xor(pervious 4th col , the new 3rd col)
